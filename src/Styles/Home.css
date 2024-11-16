@@ -15,18 +15,121 @@
 
 /* Search button styling */
 .search-button {
-  background-color: white;
-  border: 1px solid #351515;
-  width: 100%;
+  background-color: #0056b3; /* Rich blue background */
+  color: white; /* White text for contrast */
+  border: 1px solid #0eda52; /* Slightly darker border */
+  width: auto; /* Allow button to auto-adjust its width */
+  max-width: 400px; /* Maximum width for large screens */
+  margin-left: auto; /* Align left margin automatically */
+  margin-right: auto; /* Align right margin automatically */
   display: flex;
   align-items: center;
-  margin: 0 auto;
-  gap: 4px;
-  color: #4b5563;
+  justify-content: center;
+  gap: 8px; /* Spacing between text and icon */
   padding: 12px;
-  font-size: 18px;
-  border-radius: 28px;
-  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+
+.search-button:hover {
+  background-color: #6df12a;
+  border-color: #0c56d4;
+}
+
+/* Updated Search Form Styling */
+.search-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%; /* Center form horizontally */
+  max-width: 700px; /* Limit form width */
+  margin: 16px auto; /* Margin for spacing */
+  background-color: #f9f9f9; /* Light background */
+  border: 1px solid #d1d5db; /* Subtle border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  border-radius: 12px;
+  padding: 16px 20px; /* Equal padding on all sides */
+  gap: 12px; /* Spacing between inputs */
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Utilize full container width */
+  gap: 12px; /* Spacing between inputs */
+}
+
+.search-form input,
+.search-form select {
+  flex: 1; /* Equal width for all inputs */
+  padding: 10px 12px; /* Input padding */
+  border: 1px solid #d2d6dc; /* Border styling */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 16px; /* Consistent font size */
+  transition: all 0.3s ease;
+}
+
+.search-form input:focus,
+.search-form select:focus {
+  border-color: #0056b3; /* Highlighted border color */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 86, 179, 0.3); /* Subtle glow */
+}
+
+.search-form button {
+  flex: 1; /* Same size as inputs */
+  background-color: #0056b3; /* Primary color */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #004494;
+  border-radius: 8px; /* Match input radius */
+  padding: 10px 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: #004494;
+}
+
+.search-form button:active {
+  transform: scale(0.98);
+}
+
+/* Media Queries for Full Responsiveness */
+
+/* For medium screens (tablet and smaller) */
+@media screen and (max-width: 768px) {
+  .search-form {
+    flex-direction: column; /* Stack inputs vertically */
+    gap: 10px; /* Reduce gap for smaller screens */
+  }
+
+  .search-form input,
+  .search-form select,
+  .search-form button {
+    flex: none; /* Allow inputs to adapt */
+    width: 100%; /* Full width for small screens */
+  }
+}
+
+/* For very small screens (extra small phones) */
+@media screen and (max-width: 480px) {
+  .search-form-container {
+    padding: 12px; /* Reduce padding */
+  }
+
+  .search-form input,
+  .search-form select,
+  .search-form button {
+    font-size: 14px; /* Smaller font size */
+    padding: 8px 10px; /* Adjust input padding */
+  }
 }
 
 /* Grid layout for listings */
@@ -37,6 +140,8 @@
   padding-top: 16px;
   padding-left: 75px;
   padding-right: 75px;
+  margin-left: auto; /* Center the grid */
+  margin-right: auto; /* Center the grid */
 }
 .listing-grid-sm {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -105,54 +210,48 @@
 /* For medium screens (tablet and smaller) */
 @media screen and (max-width: 1024px) {
   .listing-grid {
-      padding-left: 30px;
-      padding-right: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
-  .listing-grid-sm {
-      grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 items per row */
-  }
-  .listing-grid-lg {
-      grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 items per row */
-  }
-  .listing-grid-xl {
-      grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 items per row */
+  .search-form-container {
+    padding: 12px;
   }
 }
 
 /* For smaller screens (phones) */
 @media screen and (max-width: 768px) {
   .listing-grid {
-      padding-left: 20px;
-      padding-right: 20px;
-  }
-  .listing-grid-sm {
-      grid-template-columns: repeat(1, minmax(0, 1fr)); /* 1 item per row */
-  }
-  .listing-grid-lg {
-      grid-template-columns: repeat(1, minmax(0, 1fr)); /* 1 item per row */
-  }
-  .listing-grid-xl {
-      grid-template-columns: repeat(1, minmax(0, 1fr)); /* 1 item per row */
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .search-button {
-      font-size: 16px;
-      padding: 10px;
+    font-size: 16px;
+    padding: 10px;
+  }
+  .search-form-container {
+    max-width: 90%;
   }
 }
 
 /* For very small screens (extra small phones) */
 @media screen and (max-width: 480px) {
   .listing-card-image {
-      height: 200px; /* Adjust image size */
+    height: 200px; /* Adjust image size */
   }
   .listing-card-title {
-      font-size: 1rem; /* Smaller title */
+    font-size: 1rem; /* Smaller title */
   }
   .listing-card-price {
-      font-size: 1rem;
+    font-size: 1rem;
   }
   .search-button {
-      padding: 8px;
-      font-size: 14px;
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+/* For very small screens (extra small phones) */
+@media screen and (max-width: 768px) {
+  .listing-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* 1 item per row */
   }
 }
