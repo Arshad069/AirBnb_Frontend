@@ -1,137 +1,158 @@
-/* src/Style/Home.css */
-
-/* Container for the whole page */
+/* General layout adjustments */
 .home-container {
-    margin-top: 70px;
-    min-height: 100vh;
+  margin-top: 70px;
+  min-height: 100vh;
+}
+.home-container-md {
+  margin-top: 95px;
+}
+
+.horizontal-scroll-container {
+  width: 100%;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+/* Search button styling */
+.search-button {
+  background-color: white;
+  border: 1px solid #351515;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  gap: 4px;
+  color: #4b5563;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 28px;
+  margin-bottom: 16px;
+}
+
+/* Grid layout for listings */
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 16px;
+  padding-top: 16px;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+.listing-grid-sm {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.listing-grid-lg {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.listing-grid-xl {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Individual listing card styling */
+.listing-card {
+  overflow: hidden;
+  cursor: pointer;
+}
+.listing-card-image {
+  margin: 8px;
+  height: 290px;
+  width: 95%;
+  border-radius: 12px;
+  transition: box-shadow 0.2s ease;
+}
+.listing-card-image:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+.listing-card-content {
+  padding: 16px;
+}
+.listing-card-title {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+.listing-card-text {
+  color: #6b7280;
+}
+.listing-card-price {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #000000;
+}
+.listing-card-rating {
+  display: flex;
+  align-items: center;
+}
+.listing-card-rating-text {
+  font-weight: 700;
+  margin-right: 8px;
+}
+.listing-card-rating-value {
+  font-size: 18px;
+  margin-right: 4px;
+}
+.listing-card-rating-icon {
+  color: #fbbf24;
+  font-size: 20px;
+}
+
+/* CSS for the search icon */
+.search-icon {
+  margin-right: 15px;
+}
+
+/* Media Queries for Full Responsiveness */
+
+/* For medium screens (tablet and smaller) */
+@media screen and (max-width: 1024px) {
+  .listing-grid {
+      padding-left: 30px;
+      padding-right: 30px;
   }
-  
-  @media (min-width: 768px) {
-    .home-container {
-      margin-top: 95px;
-    }
+  .listing-grid-sm {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 items per row */
   }
-  
-  /* Search Button Styles */
-  .search-container {
-    width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
+  .listing-grid-lg {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 items per row */
   }
-  
+  .listing-grid-xl {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 items per row */
+  }
+}
+
+/* For smaller screens (phones) */
+@media screen and (max-width: 768px) {
+  .listing-grid {
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+  .listing-grid-sm {
+      grid-template-columns: repeat(1, minmax(0, 1fr)); /* 1 item per row */
+  }
+  .listing-grid-lg {
+      grid-template-columns: repeat(1, minmax(0, 1fr)); /* 1 item per row */
+  }
+  .listing-grid-xl {
+      grid-template-columns: repeat(1, minmax(0, 1fr)); /* 1 item per row */
+  }
   .search-button {
-    background-color: white;
-    border: 1px solid #351515;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    font-size: 18px;
-    border-radius: 28px;
-    margin-bottom: 16px;
-    color: #4b4b4b;
+      font-size: 16px;
+      padding: 10px;
   }
-  
-  .search-button:hover {
-    background-color: #f5f5f5;
+}
+
+/* For very small screens (extra small phones) */
+@media screen and (max-width: 480px) {
+  .listing-card-image {
+      height: 200px; /* Adjust image size */
   }
-  
-  .search-icon {
-    margin-right: 15px;
+  .listing-card-title {
+      font-size: 1rem; /* Smaller title */
   }
-  
-  /* Listings Grid Layout */
-  .listings-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding-top: 16px;
-    padding-left: 16px;
-    padding-right: 16px;
+  .listing-card-price {
+      font-size: 1rem;
   }
-  
-  @media (min-width: 640px) {
-    .listings-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .search-button {
+      padding: 8px;
+      font-size: 14px;
   }
-  
-  @media (min-width: 1024px) {
-    .listings-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  @media (min-width: 1280px) {
-    .listings-grid {
-      grid-template-columns: repeat(4, 1fr);
-      padding-left: 75px;
-      padding-right: 75px;
-    }
-  }
-  
-  /* Listing Card Styles */
-  .listing-card {
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .listing-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .listing-image {
-    margin: 8px;
-    height: 290px;
-    width: 95%;
-    border-radius: 12px;
-    transition: box-shadow 0.2s ease;
-  }
-  
-  .listing-image:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  }
-  
-  .listing-details {
-    padding: 16px;
-  }
-  
-  .listing-title {
-    font-weight: 600;
-    font-size: 18px;
-  }
-  
-  .listing-type,
-  .listing-category,
-  .listing-guests {
-    color: #6b6b6b;
-  }
-  
-  .listing-price {
-    font-weight: bold;
-    font-size: 20px;
-    color: #333333;
-  }
-  
-  .listing-rating {
-    display: flex;
-    align-items: center;
-  }
-  
-  .rating-text {
-    font-weight: bold;
-    margin-right: 8px;
-  }
-  
-  .rating-value {
-    font-size: 18px;
-    margin-right: 4px;
-  }
-  
-  .rating-icon {
-    color: #f39c12;
-  }
-  
+}
