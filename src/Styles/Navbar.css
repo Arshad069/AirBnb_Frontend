@@ -62,7 +62,7 @@ body {
 
 /* Styling for Stays and Experiences */
 .menu-item {
-  font-size: 16px;
+  font-size: larger;
   color: #0e0909;
   margin: 0 10px;
   padding: 8px 12px;
@@ -71,8 +71,8 @@ body {
 }
 
 .menu-item:hover {
-  background-color: #ff385c;
-  color: white;
+  background-color: #000000;
+  color: rgb(0, 0, 0);
   transform: scale(1.05);
 }
 
@@ -100,7 +100,7 @@ body {
 
 .navbar-search-bar-item {
   margin-right: 16px;
-  font-size: 14px;
+  font-size: 16px;
   color: #555555;
 }
 
